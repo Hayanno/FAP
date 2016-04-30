@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="fr"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="fr"> <![endif]-->
+<html lang="fr">
+<!--<![endif]-->
+<head>
+
+<!-- Basic Page Needs -->
+<meta charset="utf-8">
+<meta name="description" content="FindAllPleasure est un questionnaire intéractif permettant de découvrir les fantasmes commun d'un couple">
+<meta name="author" content="Léotier Nicolas">
+
+<!-- Favicons-->
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- CSS -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="font-awesome/css/font-awesome.css" rel="stylesheet" >
+<link href="css/socialize-bookmarks.css" rel="stylesheet">
+<link href="js/fancybox/source/jquery.fancybox.css?v=2.1.4" rel="stylesheet">
+<link href="check_radio/skins/square/aero.css" rel="stylesheet">
+
+<!-- Toggle Switch -->
+<link rel="stylesheet" href="css/jquery.switch.css">
+
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.theme.css" rel="stylesheet">
+
+<!-- Google web font -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Jquery -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.8.22.min.js"></script>
+
+<!-- Wizard-->
+<script src="js/jquery.wizard.js"></script>
+
+<!-- Radio and checkbox styles -->
+<script src="check_radio/jquery.icheck.js"></script>
+
+<!-- HTML5 and CSS3-in older browsers-->
+<script src="js/modernizr.custom.17475.js"></script>
+
+<!-- Support media queries for IE8 -->
+<script src="js/respond.min.js"></script>
+
+<title>Questionnaire interactif pour les couples | Find All Pleasures</title>
+
+</head>
+
+<body>
+
+<section id="top-area">
+	<header>
+         <div class="container">
+            <div class="row">
+				<div class="col-md-4 col-xs-3" id="logo"><a href="../index.html"></a></div>
+				
+				<div class="btn-responsive-menu"> <span class="bar"></span> <span class="bar"></span> <span class="bar"></span> </div>
+
+				<nav class="col-md-8 col-xs-9" id="top-nav">
+					<ul>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">A propos</a></li>
+						<li><a href="#" >FAQ</a></li>
+						<li><a href="#" id="purchase">Donations</a></li>
+				   </ul>
+				</nav><!-- End Nav -->
+			</div><!-- End row -->
+         </div><!-- End container -->
+        </header> <!-- End header -->
+		
+ </section>   
+
+<section class="container" id="main">
+
+<!-- Start Survey container -->
+<div id="survey_container">
+
+	<div id="top-wizard">
+		<strong>Progression <span id="location"></span></strong>
+		<div id="progressbar"></div>
+		<div class="shadow"></div>
+	</div><!-- end top-wizard -->
+    
+	<form name="example-1" id="wrapped" action="" method="POST">
+		<div id="middle-wizard">
+			<div class="step">
+				<div class="row">
+					<h3 class="col-md-12">Informations basiques</h3>
+					<div class="col-md-6">
+						<h4>Vos informations</h4>
+						<ul class="data-list" id="basic-info">
+							<li><input id="pseudo" type="text" name="pseudo" class="required form-control" placeholder="Votre pseudo"></li>
+							<!--<li id="age"><input type="text" name="age" class="required form-control" placeholder="Votre age"></li>-->
+						</ul>
+						<ul class="data-list floated clearfix">
+							<li><input name="gender" type="radio" class="required check_radio" value="Homme"><label class="label_gender"> Homme</label></li>
+							<li><input name="gender" type="radio" class="required check_radio" value="Femme"><label class="label_gender"> Femme</label></li>
+							<li><input name="gender" type="radio" class="required check_radio" value="Autre"><label class="label_gender"> Autre</label></li>
+						</ul>
+					</div><!-- end col-md-6 -->
+                    
+					<div class="col-md-6">
+						<h4>Informations sur votre partenaire</h4>
+						<ul class="data-list" id="basic-info-partenaire">
+							<li><input id="pseudo_partenaire" type="text" name="pseudo_partenaire" class="required form-control" placeholder="Pseudo de votre partenaire"></li>
+							<!--<li id="age_partenaire"><input type="text" name="age_partenaire" class="required form-control" placeholder="Votre age"></li>-->
+						</ul>
+						<ul class="data-list floated clearfix">
+							<li><input name="gender_partenaire" type="radio" class="required check_radio" value="Homme"><label class="label_gender"> Homme</label></li>
+							<li><input name="gender_partenaire" type="radio" class="required check_radio" value="Femme"><label class="label_gender"> Femme</label></li>
+							<li><input name="gender_partenaire" type="radio" class="required check_radio" value="Autre"><label class="label_gender"> Autre</label></li>
+						</ul>
+					</div><!-- end col-md-6 -->
+				</div><!-- end row -->
+				
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<ul class="data-list" id="avance">
+							<li>
+                            <input id="website" name="website" type="text" value="" >
+                            <strong>Voulez-vous utiliser le mode avancé avec des questions plus sensibles ? (par exemple : jeux de viol et domination)</strong>
+							<label class="switch-light switch-ios">
+                                <input type="checkbox" name="avance" class="fix_ie8">
+                                    <span>
+                                        <span class="ie8_hide">Non</span>
+                                        <span>Oui</span>
+                                    </span>
+                                    <a></a>
+                                </label>
+							</li>
+						</ul>
+					</div>
+				</div>
+                
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4">
+						<ul class="data-list" id="terms">
+							<li>
+                            <strong>Acceptez vous les <a href="#" data-toggle="modal" data-target="#terms-txt">termes et conditions</a> ?</strong>
+							<label class="switch-light switch-ios ">
+                                <input type="checkbox" name="terms" class="required fix_ie8" value="Oui">
+                                    <span>
+                                        <span class="ie8_hide">Non</span>
+                                        <span>Oui</span>
+                                    </span>
+                                    <a></a>
+                                </label>
+							</li>
+						</ul>
+					</div>
+				</div>
+                
+			</div><!-- end step-->
+            
+			<div class="step row">
+				<div class="col-md-12">
+					Chaque partenaire devra faire ce questionnaire séparément et en privé. Le questionnaire consiste en quelques questions divisées en différentes catégories. Une fois que vous aurez fini le questionnaire tous les deux, nous comparerons vos résultats. N'oubliez pas d'être complètement honnêtes et désinhibés car vous n'avez pas à vous inquiéter. Nous ne montrerons que les réponses sur lesquelles vous êtes d'accord.
+					<br> <br>
+					En premier, nous allons commencer avec <span class="utilisateur"></span>.
+				</div>
+			</div><!-- end step -->
+            
+			<div class="step cat" id="cat-1">
+				<div class="row">
+					<div class="col-md-10">
+						<h3>Les basiques et un peu plus</h3>
+					</div>
+				</div>
+			</div><!-- end step -->
+            
+			<div class="step cat" id="cat-2">
+				<div class="row">
+					<div class="col-md-10">
+						<h3>Jouer avec les objets</h3>
+					</div>
+				</div>
+			</div><!-- end step -->
+			
+			<div class="step cat" id="cat-3">
+				<div class="row">
+					<div class="col-md-10">
+						<h3>B.D.S.M</h3>
+					</div>
+				</div>
+			</div><!-- end step -->
+			
+			<div class="step cat" id="cat-4">
+				<div class="row">
+					<div class="col-md-10">
+						<h3>L'anus</h3>
+					</div>
+				</div>
+			</div><!-- end step -->
+			
+			<div class="step cat" id="cat-5">
+				<div class="row">
+					<div class="col-md-10">
+						<h3>En public ou en groupe</h3>
+					</div>
+				</div>
+			</div><!-- end step -->
+			
+			<div class="step cat" id="cat-6">
+				<div class="row">
+					<div class="col-md-10">
+						<h3>Autres fantasmes</h3>
+					</div>
+				</div>
+			</div><!-- end step -->
+            
+			<div class="submit step" id="complete">
+                <i class="icon-check"></i>
+				<h3>Questionnaire complété !</h3>
+				<button type="submit" name="process" class="submit">Envoyer le questionnaire</button>
+			</div><!-- end submit step -->
+            
+		</div><!-- end middle-wizard -->
+        
+		<div id="bottom-wizard">
+			<button type="button" name="backward" class="backward">Précédent</button>
+			<button type="button" name="forward" class="forward">Suivant</button>
+		</div><!-- end bottom-wizard -->
+	</form>
+    
+</div><!-- end Survey container -->
+
+</section><!-- end section main container -->
+       
+<footer>
+    
+    <section id="footer_2">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<ul id="footer-nav">
+						<li>Fait avec ❤ par <strong><a href="http://nicolas.leotier.fr/" rel="nofollow">Nicolas Léotier</a></strong> </li>
+						<li><a href="#">Terms of Use</a></li>
+						<li><a href="#">Privacy</a></li>
+					</ul>              
+				</div>
+				<div class="col-md-6" style="text-align:center">
+					<ul class="social-bookmarks clearfix">
+						<li class="facebook"><a href="#">facebook</a></li>
+						<li class="googleplus"><a href="#">googleplus</a></li>
+						<li class="twitter"><a href="#">twitter</a></li>
+						<li class="delicious"><a href="#">delicious</a></li>
+						<li class="paypal"><a href="#">paypal</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </section>
+
+</footer> 
+ 
+<div id="toTop">Haut de page</div>  
+
+<!-- OTHER JS --> 
+<script src="js/jquery.validate.js"></script>
+<script src="js/jquery.placeholder.js"></script>
+<script src="js/jquery.tweet.min.js"></script>
+<script src="js/jquery.bxslider.min.js"></script>
+<script src="js/quantity-bt.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/retina.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/functions.js"></script>
+
+<!-- FANCYBOX -->
+<script  src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4" type="text/javascript"></script> 
+<script src="js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5" type="text/javascript"></script> 
+<script src="js/fancy_func.js" type="text/javascript"></script> 
+
+</body>
+</html>

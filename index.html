@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Léotier Nicolas">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>Questionnaire interactif pour les couples | Find All Pleasures</title>
+</head>
+<body>
+<section class="cd-intro cd-section">
+	<div class="cd-intro-content mask">
+		<h1 data-content="Découvre les fantasmes de ton partenaire"><span>Découvre les fantasmes de ton partenaire</span></h1>
+		<div class="action-wrapper">
+			<!--<a href="questionnaire/index.html" class="cd-btn main-action">Démarrer le questionnaire</a>-->
+			<div class="cd-modal-action">
+				<a href="#0" class="btn" data-type="modal-trigger">Démarrer le questionnaire</a>
+				<span class="cd-modal-bg"></span>
+			</div> <!-- cd-modal-action -->
+			<div class="cd-modal">
+				<div class="cd-modal-content">
+					<div id="oneOrTwo">
+						<div>
+							<a href="questionnaire/index.html#one" class="cd-btn-info">Un ordinateur</a><br><br>
+							Vous devrez remplir le questionnaire l'un après l'autre, le résultat sera affiché une fois que le deuxième partenaire aura fini.
+						</div>
+
+						<div>
+							<a href="questionnaire/index.html#two" class="cd-btn-info">Deux ordinateurs</a><br><br>
+							Pour faire le questionnaire sur deux appareils différents nous avons besoin de l'adresse mail des deux partenaires, afin de vous envoyer les résultats et prévenir le deuxième partenaire.
+						</div>
+					</div>
+				</div> <!-- cd-modal-content -->
+			</div> <!-- cd-modal -->
+			<a href="#0" class="cd-modal-close">Close</a>
+			<a href="#0" class="cd-btn-info">En savoir plus</a>
+		</div>
+	</div>
+</section>
+	
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/velocity.min.js"></script> <!-- Resource modal -->
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
