@@ -98,7 +98,7 @@
     
 	<form name="example-1" id="wrapped" action="" method="POST">
 		<div id="middle-wizard">
-			<div class="step">
+			<div class="step" id="intro">
 				<div class="row">
 					<h3 class="col-md-12">Informations basiques</h3>
 					<div class="col-md-6">
@@ -107,10 +107,10 @@
 							<li><input id="pseudo" type="text" name="pseudo" class="required form-control" placeholder="Votre pseudo"></li>
 							<!--<li id="age"><input type="text" name="age" class="required form-control" placeholder="Votre age"></li>-->
 						</ul>
-						<ul class="data-list floated clearfix">
-							<li><input name="gender" type="radio" class="required check_radio" value="Homme"><label class="label_gender"> Homme</label></li>
-							<li><input name="gender" type="radio" class="required check_radio" value="Femme"><label class="label_gender"> Femme</label></li>
-							<li><input name="gender" type="radio" class="required check_radio" value="Autre"><label class="label_gender"> Autre</label></li>
+						<ul class="data-list floated clearfix" id="ul-sexe">
+							<li><input name="sexe" type="radio" class="required check_radio" value="1"><label class="label_gender"> Homme</label></li>
+							<li><input name="sexe" type="radio" class="required check_radio" value="2"><label class="label_gender"> Femme</label></li>
+							<li><input name="sexe" type="radio" class="required check_radio" value="3"><label class="label_gender"> Autre</label></li>
 						</ul>
 					</div><!-- end col-md-6 -->
                     
@@ -120,10 +120,10 @@
 							<li><input id="pseudo_partenaire" type="text" name="pseudo_partenaire" class="required form-control" placeholder="Pseudo de votre partenaire"></li>
 							<!--<li id="age_partenaire"><input type="text" name="age_partenaire" class="required form-control" placeholder="Votre age"></li>-->
 						</ul>
-						<ul class="data-list floated clearfix">
-							<li><input name="gender_partenaire" type="radio" class="required check_radio" value="Homme"><label class="label_gender"> Homme</label></li>
-							<li><input name="gender_partenaire" type="radio" class="required check_radio" value="Femme"><label class="label_gender"> Femme</label></li>
-							<li><input name="gender_partenaire" type="radio" class="required check_radio" value="Autre"><label class="label_gender"> Autre</label></li>
+						<ul class="data-list floated clearfix" id="ul-sexe-partenaire">
+							<li><input name="sexe_partenaire" type="radio" class="required check_radio" value="1"><label class="label_gender"> Homme</label></li>
+							<li><input name="sexe_partenaire" type="radio" class="required check_radio" value="2"><label class="label_gender"> Femme</label></li>
+							<li><input name="sexe_partenaire" type="radio" class="required check_radio" value="3"><label class="label_gender"> Autre</label></li>
 						</ul>
 					</div><!-- end col-md-6 -->
 				</div><!-- end row -->
@@ -132,10 +132,12 @@
 					<div class="col-md-12 text-center">
 						<ul class="data-list" id="avance">
 							<li>
-                            <input id="website" name="website" type="text" value="" >
+							<input id="type" name="type" value="one" type="hidden">
+                            <input id="website" name="website" type="text" value="">
+							<input id="avance" name="avance" type="hidden" value="1">
                             <strong>Voulez-vous utiliser le mode avancé avec des questions plus sensibles ? (par exemple : jeux de viol et domination)</strong>
 							<label class="switch-light switch-ios">
-                                <input type="checkbox" name="avance" class="fix_ie8">
+                                <input type="checkbox" name="avanceshow" class="fix_ie8" value="1">
                                     <span>
                                         <span class="ie8_hide">Non</span>
                                         <span>Oui</span>
@@ -226,6 +228,7 @@
 			<div class="submit step" id="complete">
                 <i class="icon-check"></i>
 				<h3>Questionnaire complété !</h3>
+				<input type="hidden" name="nbrquestions" id="nbrquestion">
 				<button type="submit" name="process" class="submit">Envoyer le questionnaire</button>
 			</div><!-- end submit step -->
             

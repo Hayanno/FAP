@@ -66,8 +66,8 @@ jQuery(function($) {
 		
 		//Check and radio input styles
 		$('input.check_radio').iCheck({
-    	checkboxClass: 'icheckbox_square-aero',
-   	    radioClass: 'iradio_square-aero'
+    	checkboxClass: 'icheckbox_square-red',
+   	    radioClass: 'iradio_square-red'
   		});
 		
 		//Pace holder
@@ -128,15 +128,50 @@ $('.latest-tweets').find('ul').addClass('slider');
 
 // AJOUTS ===============================================================================
 
+var parseQueryString = function() {
+
+    var str = window.location.search;
+    var objURL = {};
+
+    str.replace(
+        new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
+        function( $0, $1, $2, $3 ){
+            objURL[ $1 ] = $3;
+        }
+    );
+    return objURL;
+};
+
 jQuery(function($) {
 	
-	var oneOrTwo = window.location.hash.substring(1);
+	var params = parseQueryString();
 	
-	console.log(oneOrTwo);
+	if(params['type'] == "two") {
+		$("#basic-info").append('<li><input type="email" name="mail" class="required form-control" placeholder="Votre mail"></li>');
+		$("#basic-info-partenaire").append('<li><input type="email" name="mail_partenaire" class="required form-control" placeholder="Mail de votre partenaire"></li>');
+		$("#type").val("two");
+	}
 	
-	if(oneOrTwo == "two") {
-		$("#basic-info").append('<li><input type="email" name="email" class="required form-control" placeholder="Votre mail"></li>');
-		$("#basic-info-partenaire").append('<li><input type="email" name="email-partenaire" class="required form-control" placeholder="Mail de votre partenaire"></li>');
+	if("clef" in params){
+		$.ajax({ 
+			type: 'POST', 
+			url: 'getQuestionnaire.php',
+			data: 'clef=' + params["clef"],
+			success: function (data) {
+				data = JSON.parse(data);
+				
+				$("#pseudo").val(data.utilisateur_2.pseudo).blur();
+				$("#pseudo_partenaire").val(data.utilisateur_1.pseudo).blur();
+				
+				// v  pas beau et à refaire avec le vrai "sexe"
+				$("#ul-sexe input:eq(" + (data.utilisateur_2.sexe_id - 1) + ")").iCheck('check');
+				$("#ul-sexe-partenaire input:eq(" + (data.utilisateur_1.sexe_id - 1) + ")").iCheck('check');
+			}
+		});
+		
+		$("#intro input:not([name=terms])").prop('disabled', true);
+		
+		//modifier input ici
 	}
 	
 	$.ajax({ 
@@ -154,14 +189,16 @@ jQuery(function($) {
 					"</div>" +
 					"<div class=\"col-md-8 reponse\">" +
 						"<ul class=\"data-list floated clearfix\">" +
-							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"non\"><label class=\"enligne-non\">Non</label></li>" +
-							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"deja\"><label class=\"enligne-pratique\">Nous pratiquons déjà cela</label></li>" +
-							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"interesse\"><label class=\"enligne-interesse\">Si mon partenaire est intéressé</label></li>" +
-							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"oui\"><label class=\"enligne-oui\">Oui !!</label></li>" +
+							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"1\"><label class=\"enligne-non\">Non</label></li>" +
+							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"2\"><label class=\"enligne-pratique\">Nous pratiquons déjà cela</label></li>" +
+							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"3\"><label class=\"enligne-interesse\">Si mon partenaire est intéressé</label></li>" +
+							"<li><input name=\"question_" + index + "\" type=\"radio\" class=\"required check_radio\" value=\"4\"><label class=\"enligne-oui\">Oui !!</label></li>" +
 						"</ul>" +
 					"</div>" +
 				"</div>");
 			});
+			
+			$('#nbrquestion').val(data.length);
 			
 			//Check and radio input styles
 			$('input.check_radio').iCheck({
